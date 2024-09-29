@@ -1,0 +1,2 @@
+Six-sided dice expected value: 3.50018
+Three six-sided dices expected value: 10.4999
