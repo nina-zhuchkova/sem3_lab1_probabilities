@@ -12,7 +12,7 @@ int main() {
     // 1-st exercise
     Dice d1(6, SEED);
     ThreeDicePool tdp(d1, d1, d1);
-    /*
+
     std::ofstream expected_values;
     expected_values.open("files/expected_values.txt");
     if (expected_values.is_open()) {
@@ -25,7 +25,7 @@ int main() {
     expected_values << "Six-sided dice expected value: " << expected_value(d1, number_of_rolls) << '\n';
     expected_values << "Three six-sided dices expected value: " << expected_value(tdp, number_of_rolls) << '\n';
     expected_values.close();
-    */
+    
 
     // 2-nd exercise
     int n = 100;
@@ -38,7 +38,7 @@ int main() {
     bonus.open("files/BonusDice_probability.csv");
     penalty.open("files/PenaltyDice_probability.csv");
     ordinary.open("files/Dice_probability.csv");
-    //three.open("files/ThreeDicePool_probability.csv");
+    three.open("files/ThreeDicePool_probability.csv");
 
 
     if (bonus.is_open()){
@@ -62,20 +62,19 @@ int main() {
         exit(1);
     }
 
-    /*
     if (three.is_open()){
         std::cout << "three is open\n";
     } else {
         std::cout << "three is NOT open\n";
         exit(1);
-    }*/
+    }
 
     bonus << "Value, Probability" << '\n';
     penalty << "Value, Probability" << '\n';
     ordinary << "Value, Probability" << '\n';
-    //three << "Value, Probability" << '\n';
+    three << "Value, Probability" << '\n';
 
-    for (unsigned i = 1; i <= 1; ++i) {
+    for (unsigned i = 1; i <= n; ++i) {
         bonus << i << ", " << value_probability(i, bd, number_of_rolls) << '\n'; 
         penalty << i << ", " << value_probability(i, pd, number_of_rolls) << '\n'; 
         ordinary << i << ", " << value_probability(i, d2, number_of_rolls) << '\n'; 
@@ -85,13 +84,13 @@ int main() {
     penalty.close();
     ordinary.close();
 
-    /*
+    
     for (unsigned i = 1; i <= 6 * 3; ++i) {
         three << i << ", " << value_probability(i, tdp, number_of_rolls) << '\n'; 
     }
 
     three.close();
-    */
+    
     
 
     // 3-rd exercise
@@ -107,7 +106,7 @@ int main() {
     }
 
     double_dice << "Value, Probability" << '\n';
-    for (unsigned i = 1; i <= 1; ++i) {
+    for (unsigned i = 1; i <= 2 * n; ++i) {
         double_dice << i << ", " << value_probability(i, dd, number_of_rolls) << '\n'; 
     }
     double_dice.close();
